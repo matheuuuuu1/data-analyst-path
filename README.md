@@ -1,27 +1,24 @@
-# SQL Analítico — Práctica con Datos de E-commerce
+# Data Analyst Portfolio
+
+> Tomo una pregunta de negocio, la traduzco a un análisis reproducible con código (SQL + Python), y la entrego como un dashboard interactivo en el que tomas decisiones.
+
+## Proyectos
+
+| # | Proyecto | Estado | Stack |
+|---|----------|--------|-------|
+| 00 | SQL Práctica | ✅ Completado | SQLite, CTEs, Window Functions |
+| 01 | E-commerce Olist | 🔄 En progreso | SQL, Python/Pandas, Apache Superset |
+
+---
+
+## 00 — SQL Práctica
 
 > Entrenamiento de funciones de ventana, agregaciones y análisis de negocio con SQL.
 
-## Base de datos
+**Motor:** SQLite | **Dominio:** E-commerce simulado (inspirado en Olist)
 
-- **Motor:** SQLite
-- **Dominio:** E-commerce simulado (inspirado en Olist)
-- **Tablas:** customers (100), products (20), orders (200), order_items (~400)
-
-### Setup
-
-```bash
-cd sql-practice
-python3 setup_db.py
-sqlite3 ecommerce_practice.db
-.mode column
-.headers on
-```
-
-## Ejercicios completados
-
-| # | Archivo | KPI | Concepto SQL |
-|---|---------|-----|--------------|
+| # | Ejercicio | KPI | Concepto SQL |
+|---|-----------|-----|--------------|
 | 1.1 | `01_1_pedidos_por_estado.sql` | Tasa de cancelación | COUNT, CASE WHEN, subquery |
 | 1.2 | `01_2_ingresos_por_categoria.sql` | Revenue por categoría | JOIN, SUM, ROUND |
 | 2.1 | `02_1_ranking_productos.sql` | Top productos por categoría | ROW_NUMBER, RANK, DENSE_RANK, PARTITION BY |
@@ -29,13 +26,8 @@ sqlite3 ecommerce_practice.db
 | 3.1 | `03_1_crecimiento_mensual.sql` | Variación de ingresos mes a mes | LAG, STRFTIME, CTEs |
 | 3.2 | `03_2_dias_entre_compras.sql` | Frecuencia de compra por cliente | LAG + JULIANDAY, RFM |
 | 3.3 | `03_3_estacionalidad_abril.sql` | Validar si la caída es estacional | PARTITION BY, MoM vs YoY |
-
-## Pendiente
-
-- [ ] LEAD — comparar con mes siguiente
-- [ ] SUM() OVER — running totals
-- [ ] SUM() OVER — running totals
-- [ ] CTEs + ventanas — segmentación de clientes
-- [ ] Análisis de cohortes
-# sql-practice
-# sql-practice
+| 4.1 | `04_1.sql` | Running total de ingresos | SUM() OVER (ORDER BY) |
+| 4.2 | `04_2.sql` | Ticket promedio acumulado | AVG() OVER (ORDER BY) |
+| 5.1 | `05_1.sql` | Segmentación frecuentes vs ocasionales | CTE + CASE WHEN |
+| 5.2 | `05_2.sql` | Top producto por estado | ROW_NUMBER + PARTITION BY, 4 JOINs |
+| 6.1 | `6.sql` | Análisis de cohortes (retención) | CTEs encadenadas, LAG, SUBSTR, COUNT DISTINCT |
