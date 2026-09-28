@@ -1,0 +1,10 @@
+# Datos (pesados, no van al repo)
+01-ecommerce-olist/data/*.csv
+01-ecommerce-olist/data/*.db
+*.png
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
