@@ -7,7 +7,7 @@
 | # | Proyecto | Estado | Stack |
 |---|----------|--------|-------|
 | 00 | SQL Práctica | ✅ Completado | SQLite, CTEs, Window Functions |
-| 01 | E-commerce Olist | 🔄 En progreso | SQL, Python/Pandas, Apache Superset |
+| 01 | E-commerce Olist | ✅ Completado | SQL, Python/Pandas, Apache Superset |
 
 ---
 

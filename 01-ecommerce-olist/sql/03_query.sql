@@ -1,4 +1,6 @@
 -- ¿Cuál es el ticket promedio por región?
+DROP VIEW IF EXISTS vw_ticket_region;
+CREATE VIEW vw_ticket_region AS (
 WITH cte_ticket AS (
 SELECT
 COUNT(o.order_id) AS total_orders,
@@ -17,9 +19,4 @@ total_earnings,
 ROUND(total_earnings / total_orders) AS ticket
 FROM
 cte_ticket
-ORDER BY ticket DESC;
---Conteo de estados: 27
-SELECT
-COUNT (DISTINCT customer_state) AS total_states
-FROM
-customers;
+ORDER BY ticket DESC);

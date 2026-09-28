@@ -5,8 +5,8 @@ order_purchase_timestamp,
 order_delivered_customer_date,
 order_estimated_delivery_date
 FROM orders LIMIT 5; */
-
-WITH delivery_cte AS (
+DROP VIEW IF EXISTS vw_delivery_performance;
+CREATE VIEW vw_delivery_performance AS (WITH delivery_cte AS (
 SELECT
 order_id AS id,
 order_delivered_customer_date AS delivered,
@@ -30,9 +30,10 @@ CASE
 FROM
 delivery_cte)
 SELECT
-ROUND(AVG(cnt)) AS average_days_late,
-COUNT(*) FILTER (WHERE title = 'late') AS count_late,
-COUNT(DISTINCT id) AS total_counts, -- (6535 / 96476) * 100
-ROUND(COUNT(*) FILTER (WHERE title = 'late')::numeric / COUNT(DISTINCT id) * 100.0, 2) AS late_pct
+m.title,
+COUNT(*) AS amt,
+ROUND(COUNT(*)::numeric / SUM(COUNT(*)) OVER() * 100, 2) AS pct_title
 FROM
-main_cte;
+main_cte m
+GROUP BY m.title
+ORDER BY amt DESC);
